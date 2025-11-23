@@ -18,7 +18,7 @@ public class MyBlockingQueueDemo1 {
     public void put(String elem) throws InterruptedException {
         synchronized (locker) {
             //判断队列满
-            if (size >= array.length) {
+            while (size >= array.length) {
                 locker.wait();
             }
 
@@ -40,7 +40,7 @@ public class MyBlockingQueueDemo1 {
         String ret = null;
         synchronized (locker) {
             //判断队列是否为空
-            if (size == 0) {
+            while (size == 0) {
                 locker.wait();
             }
 
