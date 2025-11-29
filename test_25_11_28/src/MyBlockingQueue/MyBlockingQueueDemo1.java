@@ -2,7 +2,7 @@ package MyBlockingQueue;
 
 public class MyBlockingQueueDemo1 {
     private String[] queue;
-    private int size;
+    private int size = 0;
     private int head;
     private int tail;
     private Object locker = new Object();
@@ -32,9 +32,9 @@ public class MyBlockingQueueDemo1 {
                 this.tail = 0;
             }
 
-            locker.notify();
-
             this.size++;
+
+            locker.notify();
         }
     }
 
@@ -58,9 +58,10 @@ public class MyBlockingQueueDemo1 {
                 this.head = 0;
             }
 
+            this.size--;
+
             locker.notify();
 
-            this.size--;
         }
         return ret;
     }

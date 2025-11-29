@@ -27,7 +27,7 @@ public class Test {
                 try {
                     queueDemo1.put(n + "");
                     System.out.println("生产元素：" + n);
-                    //Thread.sleep(2000);
+                    //Thread.sleep(500);
                     n++;
                 }catch (InterruptedException e) {
                     e.printStackTrace();
@@ -37,12 +37,11 @@ public class Test {
         });
 
         Thread t2 = new Thread(()-> {
-
             while (true) {
                 try {
+                    Thread.sleep(1000);
                     String ret = queueDemo1.take();
                     System.out.println("消费元素：" + ret);
-                    Thread.sleep(2000);
                 }catch(InterruptedException e) {
                     e.printStackTrace();
                 }
