@@ -98,7 +98,9 @@ public class TcpEchoServer {
     }
 
     public static void main(String[] args) throws IOException {
+        // 1. 创建服务器实例，监听 9090 端口
         TcpEchoServer tcpEchoServer = new TcpEchoServer(9090);
+        // 2. 启动服务器主逻辑
         tcpEchoServer.start();
     }
 }

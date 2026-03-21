@@ -54,7 +54,9 @@ public class TcpEchoClient {
     }
 
     public static void main(String[] args) throws IOException {
+        // 1. 创建客户端实例，连接到服务器 127.0.0.1:9090
         TcpEchoClient tcpEchoClient = new TcpEchoClient("127.0.0.1", 9090);
+        // 2. 启动客户端主逻辑
         tcpEchoClient.start();
     }
 }
